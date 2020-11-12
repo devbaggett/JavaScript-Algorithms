@@ -3,8 +3,8 @@
 // Write a function which accepts a number and adds up all the numbers from 0 to the number passed to the function.
 
 function range(num) {
-    if (num === 1) {
-        return 1;
+    if (num < 2) {
+        return num;
     }
     return num + range(num - 1);
 }
