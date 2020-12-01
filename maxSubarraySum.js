@@ -37,19 +37,38 @@ const {performance} = require('perf_hooks');
 // }
 
 // Sliding Window Pattern
+// function maxSubarraySum(arr, num) {
+//     let max = 0;
+//     let temp;
+//     if (arr.length < num) {
+//         return null;
+//     }
+//     for (let i = 0; i < num; i++) {
+//         max += arr[i];
+//     }
+//     temp = max;
+//     for (let i = num; i < arr.length; i++) {
+//         temp = temp - arr[i - num] + arr[i];
+//         max = Math.max(max, temp);
+//     }
+//     return max;
+// }
+
+// Sliding window pattern
 function maxSubarraySum(arr, num) {
-    let max = 0;
-    let temp;
     if (arr.length < num) {
         return null;
     }
+    let max = 0;
     for (let i = 0; i < num; i++) {
         max += arr[i];
     }
-    temp = max;
-    for (let i = num; i < arr.length; i++) {
-        temp = temp - arr[i - num] + arr[i];
+    let temp = max;
+    let i = 0;
+    for (let j = num; j < arr.length; j++) {
+        temp = temp - arr[i] + arr[j];
         max = Math.max(max, temp);
+        i++;
     }
     return max;
 }
