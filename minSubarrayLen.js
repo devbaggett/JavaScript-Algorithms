@@ -36,6 +36,21 @@ function minSubarrayLen(nums, sum) {
     return minLen === Infinity ? 0 : minLen;
 }
 
+// function minSubarrayLen(arr, target) {
+//     let currentSum = 0;
+//     let minLen = Infinity;
+//     let start = 0;
+//     for (let end = 0; end < arr.length; end++) {
+//         currentSum += arr[end];
+//         while (currentSum >= target) {
+//             minLen = Math.min(minLen, end - start + 1);
+//             currentSum -= arr[start];
+//             start++;
+//         }
+//     }
+//     return minLen === Infinity ? 0 : minLen;
+// }
+
 console.log(minSubarrayLen([2, 3, 1, 2, 4, 3], 7)); // 2 -> because [4,3] is the smallest subarray
 console.log(minSubarrayLen([2, 1, 6, 5, 4], 9)); // 2 -> because [5,4] is the smallest subarray
 console.log(minSubarrayLen([3, 1, 7, 11, 2, 9, 8, 21, 62, 33, 19], 52)); // 1 -> because [62] is greater than 52
