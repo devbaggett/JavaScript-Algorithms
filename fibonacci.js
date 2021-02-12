@@ -1,4 +1,4 @@
-fibonacci;
+// fibonacci
 
 // --- Directions
 // Print out the n-th entry in the fibonacci series.
