@@ -42,15 +42,15 @@
 
 // O(n) - fastest
 function twoSum(nums, target) {
-    let numsMap = {};
-    for(let i = 0; i < nums.length; i++) {
-        const num = nums[i];
-        if(numsMap[target - num] !== undefined) {
-            return [numsMap[target - num], i];
+    const numsMap = {};
+    for (let i = 0; i < nums.length; i++) {
+        let comp = target - nums[i];
+        if (comp in numsMap) {
+            return [numsMap[comp], i];
+        } else {
+            numsMap[nums[i]] = i;
         }
-        numsMap[num] = i;
     }
-    return [];
 }
 
 console.log(twoSum([2, 7, 11, 15], 9)); // [0, 1]
