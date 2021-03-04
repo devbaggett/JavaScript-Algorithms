@@ -8,19 +8,30 @@
 
 // You want to type a string word. Write a function to calculate how much time it takes to type it with one finger.
 
+// const calculateTime = (keyboard, word) => {
+//     if (word.length < 1) return 0;
+//     const keyMap = {};
+//     keyboard.split("").map((key, idx) => keyMap[key] = idx);
+//     let count = keyMap[word[0]];
+//     if (word.length === 1) return count;
+//     let i = 1;
+//     while (i < word.length) {
+//         let a = keyMap[word[i - 1]];
+//         let b = keyMap[word[i]];
+//         let distance = Math.abs(a - b);
+//         count += distance;
+//         i++;
+//     }
+//     return count;
+// };
+
 const calculateTime = (keyboard, word) => {
-    if (word.length < 1) return 0;
-    const keyMap = {};
-    keyboard.split("").map((key, idx) => keyMap[key] = idx);
-    let count = keyMap[word[0]];
-    if (word.length === 1) return count;
-    let i = 1;
-    while (i < word.length) {
-        let a = keyMap[word[i - 1]];
-        let b = keyMap[word[i]];
-        let distance = Math.abs(a - b);
-        count += distance;
-        i++;
+    let [count, start] = [0, 0];
+    const keyMap = new Map([...keyboard].map((key, idx) => [key, idx]));
+    for (let key of word) {
+        const temp = keyMap.get(key);
+        count += Math.abs(start - temp);
+        start = temp;
     }
     return count;
 };
