@@ -12,10 +12,8 @@ function transformShapeToUiInput(obj) {
     for (const item of Object.values(serverResponse.metadata.upcs)) {
         let quantity = 0;
         const [upc, items] = [item.upc, serverResponse.items];
-        if (upc in items) {
-            if (items[upc].quantity) {
-                quantity = items[upc].quantity;
-            }
+        if (upc in items && items[upc].quantity) {
+            quantity = items[upc].quantity;
         }
         const upcEntry = {
             "price_mcu": item.price_mcu,
