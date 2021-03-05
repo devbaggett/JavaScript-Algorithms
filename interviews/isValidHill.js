@@ -1,4 +1,4 @@
-// isValidHill
+// isValidHill -> Amazon Question
 
 // Determine if an array of integers is a valid hill, containing one peak
 

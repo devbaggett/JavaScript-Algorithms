@@ -1,4 +1,4 @@
-// Flatten Tree
+// Flatten Tree — Atlassian Question
 
 // recursive
 // const flatten = input => {
